@@ -1,4 +1,3 @@
-```yaml
 name: 'de-zoomcamp-module-4'
 version: '1.0'
 config-version: 2
@@ -24,4 +23,4 @@ models:
     marts:
       materialized: table
 
-```
+
