@@ -1,1 +1,27 @@
+version: 2
+
+models:
+  - name: fct_monthly_zone_revenue
+    description: "Fact table of monthly revenue by pickup zone and taxi type"
+    columns:
+      - name: year
+        description: "Year of the trip"
+      - name: month
+        description: "Month of the trip"
+      - name: pickup_location_id
+        description: "Pickup location zone ID"
+      - name: taxi_type
+        description: "Green or Yellow taxi"
+      - name: total_monthly_trips
+        description: "Total number of trips per month"
+      - name: revenue_monthly_total_amount
+        description: "Total revenue per month"
+
+sources:
+  - name: nytaxi
+    description: "Raw NYC taxi data 2019-2020"
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
+      - name: fhv_tripdata_2019
 
