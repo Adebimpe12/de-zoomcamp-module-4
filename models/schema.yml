@@ -6,22 +6,74 @@ models:
     columns:
       - name: year
         description: "Year of the trip"
+        tests:
+          - not_null
       - name: month
         description: "Month of the trip"
+        tests:
+          - not_null
       - name: pickup_location_id
         description: "Pickup location zone ID"
+        tests:
+          - not_null
       - name: taxi_type
         description: "Green or Yellow taxi"
+        tests:
+          - not_null
       - name: total_monthly_trips
         description: "Total number of trips per month"
+        tests:
+          - not_null
       - name: revenue_monthly_total_amount
         description: "Total revenue per month"
+        tests:
+          - not_null
 
 sources:
   - name: nytaxi
     description: "Raw NYC taxi data 2019-2020"
     tables:
       - name: green_tripdata
+        description: "Green taxi trip records"
+        columns:
+          - name: vendor_id
+            tests:
+              - not_null
+          - name: pickup_datetime
+            tests:
+              - not_null
+          - name: dropoff_datetime
+            tests:
+              - not_null
+          - name: payment_type
+            tests:
+              - accepted_values:
+                  values: [1,2,3,4,5]
       - name: yellow_tripdata
+        description: "Yellow taxi trip records"
+        columns:
+          - name: vendor_id
+            tests:
+              - not_null
+          - name: pickup_datetime
+            tests:
+              - not_null
+          - name: dropoff_datetime
+            tests:
+              - not_null
+          - name: payment_type
+            tests:
+              - accepted_values:
+                  values: [1,2,3,4,5]
       - name: fhv_tripdata_2019
-
+        description: "FHV trip records for 2019"
+        columns:
+          - name: dispatching_base_num
+            tests:
+              - not_null
+          - name: pickup_datetime
+            tests:
+              - not_null
+          - name: dropoff_datetime
+            tests:
+              - not_null
