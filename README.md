@@ -2,6 +2,38 @@
 
 This repository contains the solution for **Module 4: Analytics Engineering** from the **Data Engineering Zoomcamp 2026**.
 
+**Homework Answers**
+Question 1 – dbt Lineage
+
+dbt run --select int_trips_unioned builds:
+✅ **stg_green_tripdata, stg_yellow_tripdata, and int_trips_unioned**
+
+Question 2 – dbt Test on New Payment Type
+
+A new value 6 appears in payment_type. Running dbt test --select fct_trips:
+✅ **dbt fails the test with non-zero exit code**
+
+Question 3 – Record Count
+
+Number of records in fct_monthly_zone_revenue:
+✅ **14,120**
+
+Question 4 – Highest Revenue Zone (Green Taxis 2020)
+
+Pickup zone with highest total revenue (revenue_monthly_total_amount) for Green taxis in 2020:
+✅ **East Harlem North**
+
+Question 5 – Green Taxi Trips in October 2019
+
+Total trips (total_monthly_trips) for Green taxis in October 2019:
+✅ **384,624**
+
+Question 6 – FHV Staging Model Record Count
+
+Number of records in stg_fhv_tripdata after filtering dispatching_base_num IS NOT NULL:
+✅ **43,244,693**
+
+
 ## Overview
 
 The goal of this module is to transform NYC taxi data (yellow, green, and FHV trips for 2019-2020) into analytics-ready models using **dbt**.
