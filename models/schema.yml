@@ -29,6 +29,10 @@ models:
         tests:
           - not_null
 
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal:
+          value: 14120  # fct_monthly_zone_revenue total records
+
 sources:
   - name: nytaxi
     description: "Raw NYC taxi data 2019-2020"
@@ -43,6 +47,7 @@ sources:
           - name: vendor_id
             tests:
               - not_null
+
       - name: yellow_tripdata
         description: "Yellow taxi trips"
         columns:
@@ -53,9 +58,14 @@ sources:
           - name: vendor_id
             tests:
               - not_null
+
       - name: fhv_tripdata_2019
         description: "FHV trips 2019"
         columns:
           - name: dispatching_base_num
             tests:
               - not_null
+
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal:
+          value: 43244693  # stg_fhv_tripdata record count after filtering NULL dispatching_base_num
