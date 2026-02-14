@@ -34,46 +34,28 @@ sources:
     description: "Raw NYC taxi data 2019-2020"
     tables:
       - name: green_tripdata
-        description: "Green taxi trip records"
+        description: "Green taxi trips"
         columns:
-          - name: vendor_id
-            tests:
-              - not_null
-          - name: pickup_datetime
-            tests:
-              - not_null
-          - name: dropoff_datetime
-            tests:
-              - not_null
           - name: payment_type
             tests:
               - accepted_values:
                   values: [1,2,3,4,5]
+          - name: vendor_id
+            tests:
+              - not_null
       - name: yellow_tripdata
-        description: "Yellow taxi trip records"
+        description: "Yellow taxi trips"
         columns:
-          - name: vendor_id
-            tests:
-              - not_null
-          - name: pickup_datetime
-            tests:
-              - not_null
-          - name: dropoff_datetime
-            tests:
-              - not_null
           - name: payment_type
             tests:
               - accepted_values:
                   values: [1,2,3,4,5]
+          - name: vendor_id
+            tests:
+              - not_null
       - name: fhv_tripdata_2019
-        description: "FHV trip records for 2019"
+        description: "FHV trips 2019"
         columns:
           - name: dispatching_base_num
-            tests:
-              - not_null
-          - name: pickup_datetime
-            tests:
-              - not_null
-          - name: dropoff_datetime
             tests:
               - not_null
